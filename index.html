@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>CRUD VR - AFRAME</title>
+  <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+  <style>
+    /* ensure scene doesn't eat pointer events over buttons */
+    a-scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    /* scene canvas should receive pointer events so entities can be clicked */
+    /* controls sit above the scene (higher z-index) so buttons still receive clicks */
+    button {
+      position: relative;
+      z-index: 1000;
+      background-color: #7BC8A4;
+      color: #333;
+      border: 2px solid #006400;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-right: 4px;
+    }
+    button:hover {
+      background-color: #6aa992;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>CRUD VR - AFRAME</h2>S
+
+  <div id="controls">
+    <button id="btnCreate">Criar Cubo</button>
+    <button id="btnUpdate">Mudar Cor</button>
+    <button id="btnDelete">Deletar Último</button>
+    <button id="btnRead">Listar Cubos</button>
+  </div>
+
+  <a-scene>
+    <!-- light blue sky background -->
+    <a-sky color="#ADD8E6"></a-sky>
+    <a-camera position="0 1.6 5" cursor="rayOrigin: mouse"></a-camera>
+    <a-light type="ambient" color="#ffffff"></a-light>
+    <a-plane rotation="-90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+    <!-- VR buttons group -->
+    <a-entity id="vr-controls" position="0 1.6 -2">
+      <!-- each button has a dark border plane behind like the panel -->
+      <a-entity position="-1.8 0 0">
+        <a-plane width="0.86" height="0.46" color="#006400" position="0 0 0"></a-plane>
+        <a-plane id="vrCreate" color="#7BC8A4" width="0.8" height="0.4" position="0 0 0.01" class="vr-button">
+          <a-text value="Criar" color="#333" align="center" position="0 0 0.02" width="2.2" font="mozillavr" scale="1.4 1.4 1"></a-text>
+        </a-plane>
+      </a-entity>
+      <a-entity position="-0.6 0 0">
+        <a-plane width="0.86" height="0.46" color="#006400" position="0 0 0"></a-plane>
+        <a-plane id="vrUpdate" color="#7BC8A4" width="0.8" height="0.4" position="0 0 0.01" class="vr-button">
+          <a-text value="Mudar Cor" color="#333" align="center" position="0 0 0.02" width="2.6" font="mozillavr" scale="1.4 1.4 1"></a-text>
+        </a-plane>
+      </a-entity>
+      <a-entity position="0.6 0 0">
+        <a-plane width="0.86" height="0.46" color="#006400" position="0 0 0"></a-plane>
+        <a-plane id="vrDelete" color="#7BC8A4" width="0.8" height="0.4" position="0 0 0.01" class="vr-button">
+          <a-text value="Deletar" color="#333" align="center" position="0 0 0.02" width="2.2" font="mozillavr" scale="1.4 1.4 1"></a-text>
+        </a-plane>
+      </a-entity>
+      <a-entity position="1.8 0 0">
+        <a-plane width="0.86" height="0.46" color="#006400" position="0 0 0"></a-plane>
+        <a-plane id="vrRead" color="#7BC8A4" width="0.8" height="0.4" position="0 0 0.01" class="vr-button">
+          <a-text value="Histórico" color="#333" align="center" position="0 0 0.02" width="2.6" font="mozillavr" scale="1.4 1.4 1"></a-text>
+        </a-plane>
+      </a-entity>
+    </a-entity>
+    <a-entity id="historyPanel" position="0 3.5 -3" visible="true">
+      <!-- dark border like a school board frame -->
+      <a-plane color="#006400" width="4.2" height="3.2" position="0 0 -0.01"></a-plane>
+      <!-- panel with same green as ground plane -->
+      <a-plane color="#7BC8A4" width="4" height="3" position="0 0 0"></a-plane>
+      <a-text
+        id="historyText"
+        value="Histórico vazio"
+        color="#333"
+        width="4.5"
+        align="left"
+        position="-1.9 1 0.01"
+      ></a-text>
+    </a-entity>
+  </a-scene>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
