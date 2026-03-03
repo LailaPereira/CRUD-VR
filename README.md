@@ -40,7 +40,7 @@ PUT → Update
 DELETE → Delete
 
 ## Funcionalidades Atuais
-# Create — Criar Cubo
+## Create — Criar Cubo
 
 Adiciona um novo cubo na cena
 
@@ -50,7 +50,7 @@ Posição automática organizada horizontalmente
 
 Salva no LocalStorage
 
-# Read — Listar Cubos
+## Read — Listar Cubos
 
 Botão Listar Cubos (HTML)
 
@@ -64,7 +64,7 @@ Ordem de criação
 
 Painel 3D dentro da cena VR mostra os últimos 8 cubos criados
 
-# Update — Atualizar Cor
+## Update — Atualizar Cor
 
 Se houver cubo selecionado → altera a cor dele
 
@@ -72,13 +72,13 @@ Se nenhum estiver selecionado → altera o último cubo criado
 
 Cor escolhida aleatoriamente de um mapa de cores nomeadas
 
-# Delete — Remover Cubo
+## Delete — Remover Cubo
 
 Remove cubo selecionado (se houver)
 
 Caso contrário, remove o último cubo criado
 
-# Seleção de Cubos 
+## Seleção de Cubos 
 
 Clique em um cubo para selecioná-lo
 
@@ -106,7 +106,7 @@ Cores antigas em hexadecimal são convertidas para nomes amigáveis
 
 O sistema possui dois tipos de controle:
 
-# Botões HTML (modo desktop)
+## Botões HTML (modo desktop)
 
 Criar Cubo
 
@@ -116,7 +116,7 @@ Deletar Último
 
 Listar Cubos
 
-# Botões 3D dentro do ambiente VR
+## Botões 3D dentro do ambiente VR
 
 Criar
 
